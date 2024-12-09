@@ -16,6 +16,6 @@ class ProductViewModel @Inject constructor(private val productUseCase: ProductUs
 
     val products = Pager(
         config = PagingConfig(pageSize = 20, enablePlaceholders = false),
-        pagingSourceFactory = { ProductPagingSource(productUseCase) }
+        pagingSourceFactory = { ProductPagingSource(productUseCase, pageSize = 20) }
     ).flow.cachedIn(viewModelScope)
 }

@@ -19,6 +19,7 @@ hilt = "2.51.1"
 lifecycle_version = "2.8.7"
 glide = "4.16.0"
 paging_version = "3.3.4"
+recyclerview = "1.3.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -41,6 +42,7 @@ androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-viewmodel
 com-github-bumptech-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 com-github-bumptech-glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
 paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.ref = "paging_version" }
+recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

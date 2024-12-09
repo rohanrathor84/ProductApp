@@ -1,5 +1,7 @@
 package com.rohan.productapp.presentation.adapter
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +11,14 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.rohan.productapp.R
 import com.rohan.productapp.domain.model.PicSumPhoto
+import com.rohan.productapp.utils.placeholderColors
 
 class ProductAdapter :
     PagingDataAdapter<PicSumPhoto, ProductAdapter.ProductViewHolder>(ProductComparator) {
+
     class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val productImage: ImageView = view.findViewById(R.id.productImage)
         val productTitle: TextView = view.findViewById(R.id.productTitle)
@@ -24,8 +29,13 @@ class ProductAdapter :
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = getItem(position)
         product?.let {
+            // Use the color based on the position
+            val placeholderColor = placeholderColors[position % placeholderColors.size]
+
             Glide.with(holder.productImage.context)
                 .load(it.download_url)
+                .placeholder(ColorDrawable(Color.parseColor(placeholderColor)))
+                .diskCacheStrategy(DiskCacheStrategy.ALL) // Enable caching
                 .into(holder.productImage)
 
             holder.productTitle.text = it.author
@@ -47,6 +57,5 @@ class ProductAdapter :
         override fun areContentsTheSame(oldItem: PicSumPhoto, newItem: PicSumPhoto): Boolean {
             return oldItem == newItem
         }
-
     }
 }

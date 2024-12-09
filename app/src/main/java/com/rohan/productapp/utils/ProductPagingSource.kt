@@ -1,13 +1,12 @@
 package com.rohan.productapp.utils
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.rohan.productapp.di.ApiResult
 import com.rohan.productapp.domain.model.PicSumPhoto
 import com.rohan.productapp.domain.usecase.ProductUseCase
 
-class ProductPagingSource(private val productUseCase: ProductUseCase) :
+class ProductPagingSource(private val productUseCase: ProductUseCase, private val pageSize: Int) :
     PagingSource<Int, PicSumPhoto>() {
     override fun getRefreshKey(state: PagingState<Int, PicSumPhoto>): Int? {
         // Use the closest anchor position to determine the key for refreshing
@@ -21,7 +20,7 @@ class ProductPagingSource(private val productUseCase: ProductUseCase) :
         val currentPage = params.key ?: 1
 
         return try {
-            when (val response = productUseCase.getProducts(page = currentPage, limit = params.loadSize)) {
+            when (val response = productUseCase.getProducts(page = currentPage, limit = pageSize)) {
                 is ApiResult.Success -> {
                     val products = response.data
 

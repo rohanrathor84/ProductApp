@@ -75,6 +75,7 @@ dependencies {
     implementation(libs.com.github.bumptech.glide)
     kapt(libs.com.github.bumptech.glide.compiler)
     implementation(libs.paging.runtime)
+    implementation(libs.recyclerview)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
