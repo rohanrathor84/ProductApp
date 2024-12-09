@@ -18,10 +18,7 @@
         android:theme="@style/Theme.ProductApp"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.ui.products.ProductsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.ui.user.UserActivity"
+            android:name=".presentation.ui.products.ProductActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,11 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/products_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp"
-    tools:context=".presentation.ui.products.ProductsActivity">
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/productImage"

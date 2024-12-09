@@ -43,15 +43,15 @@ android {
     productFlavors {
         create("staging") {
             dimension = "environment"
-            buildConfigField("String", "BASE_URL", "\"https://staging.example.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://picsum.photos/\"")
         }
         create("production") {
             dimension = "environment"
-            buildConfigField("String", "BASE_URL", "\"https://api.example.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://fakestoreapi.com/\"")
         }
         create("live") {
             dimension = "environment"
-            buildConfigField("String", "BASE_URL", "\"https://example.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://fakestoreapi.com/\"")
         }
     }
 }
@@ -74,6 +74,7 @@ dependencies {
     implementation(libs.androidx.lifecycle)
     implementation(libs.com.github.bumptech.glide)
     kapt(libs.com.github.bumptech.glide.compiler)
+    implementation(libs.paging.runtime)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

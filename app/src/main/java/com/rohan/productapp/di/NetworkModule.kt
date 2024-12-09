@@ -3,10 +3,10 @@ package com.rohan.productapp.di
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.rohan.productapp.BuildConfig
-import com.rohan.productapp.data.remote.ProductsApiService
+import com.rohan.productapp.data.remote.ProductApiService
 import com.rohan.productapp.data.remote.UserApiService
-import com.rohan.productapp.data.repository.products.ProductsRepository
-import com.rohan.productapp.data.repository.products.ProductsRepositoryImpl
+import com.rohan.productapp.data.repository.products.ProductRepository
+import com.rohan.productapp.data.repository.products.ProductRepositoryImpl
 import com.rohan.productapp.data.repository.user.UserRepository
 import com.rohan.productapp.data.repository.user.UserRepositoryImpl
 import dagger.Module
@@ -87,8 +87,8 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideProductsApiService(retrofit: Retrofit): ProductsApiService {
-        return retrofit.create(ProductsApiService::class.java)
+    fun provideProductsApiService(retrofit: Retrofit): ProductApiService {
+        return retrofit.create(ProductApiService::class.java)
     }
 
     @Provides
@@ -99,8 +99,8 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideProductsRepository(productsApiService: ProductsApiService): ProductsRepository {
-        return ProductsRepositoryImpl(productsApiService)
+    fun provideProductRepository(productApiService: ProductApiService): ProductRepository {
+        return ProductRepositoryImpl(productApiService)
     }
 }
 
